@@ -71,6 +71,10 @@ public class EntradaSaida {
 	 public static void exibeInfoCasa(String informacoes){
 		 JOptionPane.showMessageDialog(null, informacoes, "Informações da Casa ", JOptionPane.INFORMATION_MESSAGE);
 	 }
+	 public static void MsgCasaNaoConstruida(){
+		 JOptionPane.showMessageDialog(null, "A Casa Ainda nao foi construida!", "Casa não construida", JOptionPane.ERROR_MESSAGE);
+	 }
+
 	 
 	 
 }

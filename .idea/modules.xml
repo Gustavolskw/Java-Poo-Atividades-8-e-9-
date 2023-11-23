@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FabricaDeCarrosFinal/FabricaDeCarrosFinal.iml" filepath="$PROJECT_DIR$/FabricaDeCarrosFinal/FabricaDeCarrosFinal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-Poo-Atividades-8-e-9-.iml" filepath="$PROJECT_DIR$/.idea/Java-Poo-Atividades-8-e-9-.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaPOOCasa/JavaPOOCasa.iml" filepath="$PROJECT_DIR$/JavaPOOCasa/JavaPOOCasa.iml" />
+    </modules>
+  </component>
+</project>

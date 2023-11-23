@@ -9,11 +9,12 @@ public class Controller {
 	 private Casa casa = null;
 	 public void showMenu(){
 		  int opcao;
+		  boolean casaconstruidaVal = false;
 		  
 		  do{
 			   opcao = EntradaSaida.solicitaOpcao();
 			   switch (opcao){
-					
+
 					case 0 :
 						 JOptionPane.showMessageDialog(null, "Construir Casa" );
 						 this.casa = new Casa();
@@ -50,32 +51,44 @@ public class Controller {
 							  System.out.println("Descriçao da Janela "+ janela.getDescricao()+"\n");
 							  System.out.println("estado da janela "+ janela.getEstado()+"\n");
 						 }
+						casaconstruidaVal = true;
 						 break;
-					
-					case 1:
-						 JOptionPane.showMessageDialog(null, "Movimentar Portas ou janelas ");
-						 String tipoDeAbertura = EntradaSaida.solicitaTipoAbertura();
-						 ArrayList<Aberturas> listaDeAberturas = new ArrayList<Aberturas>();
-						 if(tipoDeAbertura.equals("Porta")){
-							  listaDeAberturas = this.casa.getListaDeportas();
-						 }else {
-							  listaDeAberturas = this.casa.getListaDejanelas();
-						 }
-						 int posicao = EntradaSaida.solicitaAberturaMover(listaDeAberturas);
-						 int novoEstado = 0;
-						 if (posicao!=-1 ){
-							 novoEstado = EntradaSaida.solicitaEstado(tipoDeAbertura);
-							 Aberturas abertura = this.casa.retornaAbertura(posicao, tipoDeAbertura);
-							 this.casa.moverAbertura(abertura, novoEstado);
-							 System.out.println("Novo estado da "+tipoDeAbertura+": "+abertura.getEstado());
-						 }else {
-							 EntradaSaida.exibeMsgAbertura();
-						 }
-						 break;
+
+						case 1:
+							if (!casaconstruidaVal){
+								EntradaSaida.MsgCasaNaoConstruida();
+							}
+							if(casaconstruidaVal) {
+								JOptionPane.showMessageDialog(null, "Movimentar Portas ou janelas ");
+								String tipoDeAbertura = EntradaSaida.solicitaTipoAbertura();
+								ArrayList<Aberturas> listaDeAberturas = new ArrayList<Aberturas>();
+								if (tipoDeAbertura.equals("Porta")) {
+									listaDeAberturas = this.casa.getListaDeportas();
+								} else {
+									listaDeAberturas = this.casa.getListaDejanelas();
+								}
+								int posicao = EntradaSaida.solicitaAberturaMover(listaDeAberturas);
+								int novoEstado = 0;
+								if (posicao != -1) {
+									novoEstado = EntradaSaida.solicitaEstado(tipoDeAbertura);
+									Aberturas abertura = this.casa.retornaAbertura(posicao, tipoDeAbertura);
+									this.casa.moverAbertura(abertura, novoEstado);
+									System.out.println("Novo estado da " + tipoDeAbertura + ": " + abertura.getEstado());
+								} else {
+									EntradaSaida.exibeMsgAbertura();
+								}
+							}
+							break;
+
 					case 2 :
-						 JOptionPane.showMessageDialog(null, "Ver irnfomaçoes da casa ");
-						String informacoes = this.casa.gerarInfoCasa();
-						EntradaSaida.exibeInfoCasa(informacoes);
+						if (!casaconstruidaVal){
+							EntradaSaida.MsgCasaNaoConstruida();
+						}
+						if(casaconstruidaVal) {
+							JOptionPane.showMessageDialog(null, "Ver irnfomaçoes da casa ");
+							String informacoes = this.casa.gerarInfoCasa();
+							EntradaSaida.exibeInfoCasa(informacoes);
+						}
 						 break;
 			   }
 		  }while (opcao!=3);
