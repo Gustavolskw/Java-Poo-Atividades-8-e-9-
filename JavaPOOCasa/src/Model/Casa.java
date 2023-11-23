@@ -40,11 +40,41 @@ public class Casa {
 		  this.listaDejanelas = listaDejanelas;
 	 }
 	 public void constroiCasa(String descricao, String cor, ArrayList<Aberturas>listaDejanelas, ArrayList<Aberturas>listaDeportas){
-		setDescricao(descricao);
+		 setDescricao(descricao);
 		  setCor(cor);
 		  setListaDejanelas(listaDejanelas);
 		  setListaDeportas(listaDeportas);
 		  
 	 }
+	 public Aberturas retornaAbertura(int posicao, String tipoDeAbertura){
+		 if (tipoDeAbertura.equalsIgnoreCase("porta")){
+			return this.listaDeportas.get(posicao);
+		 }else {
+			 return this.listaDejanelas.get(posicao);
+		 }
+	 }
+	 public void moverAbertura(Aberturas abertura, int novoEstado) {
+		 abertura.setEstado(novoEstado);
+	 }
+
+		 public String gerarInfoCasa () {
+			 String informacoes = "Descrição: " + this.descricao + "\nCor" + "\nLista De Portas";
+
+			 for (Aberturas abertura : this.listaDeportas) {
+				 int estado = abertura.getEstado();
+				 informacoes += abertura.getDescricao() + "Estado: " + abertura.getEstado() + "\n";
+
+			 }
+			 informacoes+= "\nLista de janelas";
+			 for(Aberturas abertura : this.listaDejanelas){
+				 int estado = abertura.getEstado();
+				 informacoes += abertura.getDescricao() + "Estado: "+ abertura.getEstado() + "\n";
+			 }
+			 return informacoes;
+		 }
+
+
+
+
 	 
 }
