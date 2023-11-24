@@ -2,7 +2,7 @@ package Model;
 
 public abstract class Aberturas {
 	 protected String descricao;
-	 protected int estado;
+	 protected String estado;
 	 
 	 public String getDescricao() {
 		  return descricao;
@@ -12,11 +12,11 @@ public abstract class Aberturas {
 		  this.descricao = descricao;
 	 }
 	 
-	 public int  getEstado() {
+	 public String  getEstado() {
 		  return estado;
 	 }
 	 
-	 public void setEstado(int estado) {
+	 public void setEstado(String estado) {
 		  this.estado = estado;
 	 }
 }

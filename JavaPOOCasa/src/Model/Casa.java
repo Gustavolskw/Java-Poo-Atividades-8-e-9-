@@ -53,7 +53,7 @@ public class Casa {
 			 return this.listaDejanelas.get(posicao);
 		 }
 	 }
-	 public void moverAbertura(Aberturas abertura, int novoEstado) {
+	 public void moverAbertura(Aberturas abertura, String novoEstado) {
 		 abertura.setEstado(novoEstado);
 	 }
 
@@ -61,13 +61,13 @@ public class Casa {
 			 String informacoes = "Descrição: " + this.descricao + "\nCor" + "\nLista De Portas";
 
 			 for (Aberturas abertura : this.listaDeportas) {
-				 int estado = abertura.getEstado();
+				String estado = abertura.getEstado();
 				 informacoes += abertura.getDescricao() + "Estado: " + abertura.getEstado() + "\n";
 
 			 }
 			 informacoes+= "\nLista de janelas";
 			 for(Aberturas abertura : this.listaDejanelas){
-				 int estado = abertura.getEstado();
+				 String estado = abertura.getEstado();
 				 informacoes += abertura.getDescricao() + "Estado: "+ abertura.getEstado() + "\n";
 			 }
 			 return informacoes;

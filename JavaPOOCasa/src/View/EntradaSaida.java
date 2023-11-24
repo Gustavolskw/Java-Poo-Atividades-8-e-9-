@@ -28,12 +28,16 @@ public class EntradaSaida {
 	 public static int solicitaQntdAberturas(String abertura ){
 		  return Integer.parseInt(JOptionPane.showInputDialog("informe a Quantidade de "+ abertura));
 	 }
-	 public static int solicitaEstado(String tipoDeAbertura){
+	 public static String solicitaEstado(String tipoDeAbertura){
 		 
 		  String[] opcoes = {"Aberta", "Fechada"};
-		 return  JOptionPane.showOptionDialog(null, "Qual o estado da "+ tipoDeAbertura,"estado",
+		int  option =  JOptionPane.showOptionDialog(null, "Qual o estado da "+ tipoDeAbertura,"estado",
 				  JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,null,  opcoes, opcoes[0]);
-		  
+		  if(option == 0 ) {
+			  return "Aberta";
+		  }else {
+			  return "Fechada";
+		  }
 	 }
 	 public static String solicitaTipoAbertura(){
 		  String[] opcoes ={"Porta", "Janela"};
